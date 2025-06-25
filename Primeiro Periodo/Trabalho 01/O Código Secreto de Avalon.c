@@ -37,18 +37,14 @@ int main(){
 	printf("Digite uma palavra. (Max = 80 caracteres!)\n");
 	printf("Nao eh aceito palavras com caracteres!\n");
 	
-	do{
-		teste = 0;
-		
-		fgets(str, TAM, stdin);
-		str[strlen(str)-1] = '\0';
+	fgets(str, TAM, stdin);
+	str[strlen(str)-1] = '\0';
 
-		for(i = 0; i < strlen(str); i++){
-			if(!isalnum(str[i]) && str[i] != ' '){
-				teste += 1;
-			}
+	for(i = 0; i < strlen(str); i++){
+		if(!isalnum(str[i]) && str[i] != ' '){
+			str[i] = ' '; //Troca caracteres especiais por espacos, que depois vao ser "excluidos"
 		}
-	}while(teste > 0); //So aceita se nao houver caracteres que nao seja numeros ou letras "normais"
+	}
 	
 	for(i = 0; i < strlen(str); i++){
 		str[i] = tolower(str[i]); //Altera todos os caracteres para minusculos

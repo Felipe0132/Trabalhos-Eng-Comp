@@ -3,9 +3,10 @@
 
 int busca_fibonacci(numvez, numdesejado){
 	
-	int *num, numaux, meio, vez = 0, i;
+	int numaux, meio, vez = 0, i;
+	long *num;
 	
-	num = (int*) malloc(numvez * sizeof(int)); //Aqui ele pega o numero "enezimo" primeiro numero da sequencia que a pessoa deseja e faz um vetor desse tamanho
+	num = (long*) malloc(numvez * sizeof(long)); //Aqui ele pega o numero "enezimo" primeiro numero da sequencia que a pessoa deseja e faz um vetor desse tamanho
 	
 	num[0] = 0;
 	num[1] = 1;
@@ -37,7 +38,8 @@ int busca_fibonacci(numvez, numdesejado){
 
 int main(){
 	
-	int numvez, numdesejado, num1, num2, numaux, indice, i;
+	int numvez, numdesejado, indice, i;
+	long numaux, num1 = 0, num2 = 1;
 	
 	printf("Quantos numeros aparecera da sequencia?\n");
 	scanf("%d", &numvez);
@@ -46,7 +48,7 @@ int main(){
 	scanf("%d", &numdesejado);
 	
 	for(i = 0; i < numvez; i++){
-		printf("%d ", num1);
+		printf("%ld ", num1);
 		numaux = num2;
 		num2 = num1 + num2;
 		num1 = numaux;
