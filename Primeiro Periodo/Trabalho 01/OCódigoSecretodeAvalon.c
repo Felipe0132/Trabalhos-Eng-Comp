@@ -1,6 +1,6 @@
 //A ideia do trabalho eh dar uma entrada de uma string e passar pela funcao que verifica palindromo, palavras que ao contrario eh a mesma coisa,
 //porem existe regras, nao eh permitido caracteres especiais como acentos e etc, e o programa ignora acentos.
-
+#include "forms.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -41,8 +41,12 @@ int main(){
 	str[strlen(str)-1] = '\0';
 
 	for(i = 0; i < strlen(str); i++){
-		if(!isalnum(str[i]) && str[i] != ' '){
-			str[i] = ' '; //Troca caracteres especiais por espacos, que depois vao ser "excluidos"
+		if(alfabetoAZ(str[i]) == 0){
+			str[i] = ' ';
+		}else if(alfabetoaz(str[i]) == 0){
+			str[i] = ' ';
+		}else if(caracnumeros(str[i]) == 0){
+			str[i] = ' ';
 		}
 	}
 	
