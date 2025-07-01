@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int busca_fibonacci(numvez, numdesejado){
+int busca_fibonacci(int numvez, int numdesejado){
 	
 	int numaux, meio, vez = 0, i;
 	long *num;
@@ -28,7 +28,7 @@ int busca_fibonacci(numvez, numdesejado){
 		}else if(num[meio] > numdesejado){ //Se for menor do que o meio selecionado ele divide por 2 novamente
 				meio = meio / 2;
 			}else if(num[meio] < numdesejado){
-				meio = meio + meio/4; //Se for maior que o numero do meio selecionado
+				meio = (numvez - meio)/2 + meio; //Se for maior que o numero do meio selecionado
 		}
 		vez++;
 	}
